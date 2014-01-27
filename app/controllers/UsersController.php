@@ -1,42 +1,89 @@
 <?php
 
-class UsersController extends \BaseController {
+use Acme\Mailers\UserMailer as Mailer;
 
-	protected $user;
+class UsersController extends BaseController {
+	
+	protected $mailer;
 
-	public function __construct(User $user)
+	public function __construct(Mailer $mailer)
 	{
-		$this->user = $user;
-	}	
+		$this->mailer = $mailer;
+	}
 
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
 	public function index()
 	{
-		$users = $this->user->all();
-		return View::make('users.index')->withUsers($users);
+        return View::make('users.index');
 	}
 
-	public function show($username)
-	{
-		$user = $this->user->whereUsername($username)->first();
-		return View::make('users.show', ['user' => $user]);
-	}
-
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
 	public function create()
 	{
-		return View::make('users.create');
+        return View::make('users.create');
 	}
 
-	public function store() 
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
 	{
-		$input = Input::all();
-		
-		if ( ! $this->user->fill($input)->isValid() )
-		{
-			return Redirect::back()->withInput()->withErrors($this->user->errors);
-		}
-
-		$this->user->save();
-
-		return Redirect::route('users.index');
+		$user = User::find(1);
+		$this->mailer->welcome($user);
 	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+        return View::make('users.show');
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+        return View::make('users.edit');
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		//
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		//
+	}
+
 }
