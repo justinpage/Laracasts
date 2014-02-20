@@ -8,7 +8,9 @@
 	},
 
 	"require-dev": {
-		"way/generators": "dev-master"
+		"way/generators": "dev-master",
+		"doctrine/dbal": "dev-master"
+
 	},
 
 	"autoload": {
