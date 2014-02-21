@@ -1,7 +1,7 @@
 <?php
 
 // add the dependancy to make and use the name space
-use Acme\Services\Validator;
+use Acme\Services\Validation\LessonValidator as Validator;
 
 class LessonsController extends BaseController {
 
@@ -19,17 +19,17 @@ class LessonsController extends BaseController {
 	 */
 	public function index()
 	{
-        return View::make('lessons.index');
+		return View::make('lessons.index');
 	}
 
 	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
+		* Show the form for creating a new resource.
+		*
+		* @return Response
 	 */
 	public function create()
 	{
-        return View::make('lessons.create');
+		return View::make('lessons.create');
 	}
 
 	/**
@@ -39,13 +39,8 @@ class LessonsController extends BaseController {
 	 */
 	public function store()
 	{
-		$rules = [
-			'title'     => 'required',
-			'body'      => 'required',
-			'video_src' => 'required',
-		];
 
-		if( ! $this->validator->validate(Input::all(), $rules))
+		if( ! $this->validator->validate(Input::all()))
 		{
 			return Redirect::back()->withErrors($this->validator->errors())->withInput();
 		}
@@ -55,7 +50,8 @@ class LessonsController extends BaseController {
 		// mass assignment vulnability
 		// anti-pattern
 		// $input = Input::all();
-        //
+		//
+		$input = Input::all();
 		Lesson::create($input);
 
 		return Redirect::route('lessons.create');
@@ -69,7 +65,7 @@ class LessonsController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('lessons.show');
+		return View::make('lessons.show');
 	}
 
 	/**
@@ -80,7 +76,7 @@ class LessonsController extends BaseController {
 	 */
 	public function edit($id)
 	{
-        return View::make('lessons.edit');
+		return View::make('lessons.edit');
 	}
 
 	/**
