@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8' />
-    <title>Create Sessions</title>
-</head>
-<body>
+@extends('layouts.default')
+
+@section('content')
+	<h1>Login</h1>
 	{{ Form::open(['route' => 'sessions.store']) }}
 
 		<div>
@@ -18,5 +15,4 @@
 		</div>
 	<div>{{ Form::submit('Login') }}</div>
 	{{ Form::close() }}
-</body>
-</html>
+@stop

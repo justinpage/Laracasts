@@ -28,6 +28,8 @@ return array(
 	|
 	*/
 
+	// if, in the advent of name spacing your User model, you must include that addition
+	// 'model' => 'User',
 	'model' => 'User',
 
 	/*
