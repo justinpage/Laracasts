@@ -8,7 +8,8 @@
 	},
 
 	"require-dev": {
-		"way/generators": "dev-master"
+		"way/generators": "dev-master",
+		"iron-io/iron_mq": "1.5.1"
 	},
 
 	"autoload": {
