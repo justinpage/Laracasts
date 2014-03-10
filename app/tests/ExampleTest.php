@@ -7,11 +7,23 @@ class ExampleTest extends TestCase {
 	 *
 	 * @return void
 	 */
+	public function testIndex()
+	{
+		$this->call('GET', '/');
+		$this->assertResponseOk();
+	}
+
 	public function testBasicExample()
 	{
-		$crawler = $this->client->request('GET', '/');
+		$this->call('POST', 'buy');
+		$this->assertRedirectedToRoute('home', null, ['flash_message' => 'Foo']);
+	}
 
-		$this->assertTrue($this->client->getResponse()->isOk());
+	public function testAbout()
+	{
+		$this->call('GET', 'about');
+
+		$this->assertViewHas('tags');
 	}
 
 }
