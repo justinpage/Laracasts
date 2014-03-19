@@ -1,0 +1,10 @@
+ClearHistoryCron:
+  type: cron
+  script: htdocs/artisan
+  args:
+    - "laracasts:clear-history"
+
+  interval:
+    day: 1
+    minute: 0
+    hour: 12.

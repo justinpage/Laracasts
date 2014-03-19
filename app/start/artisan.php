@@ -11,3 +11,5 @@
 |
 */
 
+/* Artisan::add(new ClearHistoryCommand); */
+Artisan::resolve('ClearHistoryCommand');
