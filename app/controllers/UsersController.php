@@ -8,27 +8,33 @@ class UsersController extends \BaseController {
 		$input = Input::all();
 
 		// validation
-		$validator = Validator::make($input, [
-			'email' => 'required|email|unique',
-			'password' => 'required|min:6'
-		]);
+		// never place validation in your controller
 
-		if ($validator->fails()) return Redirect::back()->withErrors($validator)->withInput();
+		// dependency inject a instance of user
+		if (! $this->user->isValidForCreation($input))
+			return Redirect::back()->withErrors($this->user->getErrors())->withInput();
 
-		// persistance
-		$user = User::create($input); // <--- guarded??
+		$this->userCreator->make();
 
-		// email
-		Mail::send('emails.welcome', ['user' => $user], function($message) use ($user)
-		{
-			$mesage->to($user->email)->subject('Welcome Aboard');
-		});
+		// all the user Creator covers all this below
 
-		$mailChimp = new MailChimp;
-		$mailChimp->addToList('members', $user);
+			// persistance
+			// maybe its Eloquent or something else, the controller doesn't need to know
+			/* $user = $this->repository->create($input); */
 
+			// email
+			/* $this->userMailer->welcome($user)->send(); */
+
+
+			// Newsletter
+			/* $this->newsletter->addToList('members', $user); */
+
+		// this is ok to allow
 		Auth::login($user);
 
 		return Redirect::home()->with('flash_message', 'You are now signed up!');
 	}
 }
+
+// this allows for testing. Now, we can mock the user creator!
+// This makes this controller significantly easier to test
