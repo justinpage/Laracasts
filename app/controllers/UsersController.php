@@ -1,42 +1,34 @@
 <?php
 
 class UsersController extends \BaseController {
-
-	protected $user;
-
-	public function __construct(User $user)
-	{
-		$this->user = $user;
-	}	
-
-	public function index()
-	{
-		$users = $this->user->all();
-		return View::make('users.index')->withUsers($users);
-	}
-
-	public function show($username)
-	{
-		$user = $this->user->whereUsername($username)->first();
-		return View::make('users.show', ['user' => $user]);
-	}
-
-	public function create()
-	{
-		return View::make('users.create');
-	}
-
-	public function store() 
+	// a whole hell lot of logic that should not be in the store method
+	// should be abstracted for Single Responsibility
+	public function store()
 	{
 		$input = Input::all();
-		
-		if ( ! $this->user->fill($input)->isValid() )
+
+		// validation
+		$validator = Validator::make($input, [
+			'email' => 'required|email|unique',
+			'password' => 'required|min:6'
+		]);
+
+		if ($validator->fails()) return Redirect::back()->withErrors($validator)->withInput();
+
+		// persistance
+		$user = User::create($input); // <--- guarded??
+
+		// email
+		Mail::send('emails.welcome', ['user' => $user], function($message) use ($user)
 		{
-			return Redirect::back()->withInput()->withErrors($this->user->errors);
-		}
+			$mesage->to($user->email)->subject('Welcome Aboard');
+		});
 
-		$this->user->save();
+		$mailChimp = new MailChimp;
+		$mailChimp->addToList('members', $user);
 
-		return Redirect::route('users.index');
+		Auth::login($user);
+
+		return Redirect::home()->with('flash_message', 'You are now signed up!');
 	}
 }
