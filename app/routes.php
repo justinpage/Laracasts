@@ -4,5 +4,7 @@
 Route::get('/', function()
 {
 	/* dd(Config::get('mail.driver')); */
-	dd(Config::get('database.default'));
+	/* dd(Config::get('database.default')); */
+
+	dd(app());
 });
