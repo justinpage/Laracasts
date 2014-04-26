@@ -76,8 +76,7 @@ class QuestionsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-
-		return Redirect::route('questions.index')->with('flash_message', 'Record destroyed');
+		return Redirect::route('questions.index')->with('flash_message', "Record $id destroyed");
 	}
 
 }
