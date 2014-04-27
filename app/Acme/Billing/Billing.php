@@ -11,7 +11,7 @@ class Billing {
 
 	public function __construct()
 	{
-		Mail::send();
+		/* Mail::send(); */
 		dd(new Something);
 	}
 }
