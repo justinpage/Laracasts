@@ -1,27 +1,22 @@
 <?php
 
-class TasksController extends \BaseController {
+class UserTasksController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /tasks
+	 * GET /usertasks
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($username)
 	{
-		// fetch all tbarasks
-		$tasks = Task::with('user')->get();
-
-		// load a view to display them
+		$tasks = Task::byUsername($username);
 		return View::make('tasks.index', compact('tasks'));
-
-		// Eloquent, an ORM, offers clean Query builders
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /tasks/create
+	 * GET /usertasks/create
 	 *
 	 * @return Response
 	 */
@@ -32,7 +27,7 @@ class TasksController extends \BaseController {
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /tasks
+	 * POST /usertasks
 	 *
 	 * @return Response
 	 */
@@ -43,23 +38,20 @@ class TasksController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /tasks/{id}
+	 * GET /usertasks/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($username, $taskId)
 	{
-		// fetch single task
-		$task = Task::findOrFail($id);
-
-		// load a view to display it
+		$task = Task::find($taskId, $username);
 		return View::make('tasks.show', compact('task'));
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /tasks/{id}/edit
+	 * GET /usertasks/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -71,19 +63,18 @@ class TasksController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /tasks/{id}
+	 * PUT /usertasks/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($username, $taskId)
 	{
-		//
 	}
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /tasks/{id}
+	 * DELETE /usertasks/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response

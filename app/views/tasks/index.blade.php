@@ -4,7 +4,12 @@
 	<h1>All Tasks</h1>
 	<ul class='list-group'>
 		@foreach($tasks as $task)
-			<li class="list-group-item">{{ link_to("tasks/$task->id", $task->title) }}</li>
+			<li class="list-group-item">
+			<a href="/{{ $task->user->username }}/tasks">
+				{{ gravatar_tag($task->user->email, $task->user->username) }}
+			</a>
+				{{ link_to_task($task) }}
+			</li>
 		@endforeach
 	</ul>
 @stop
