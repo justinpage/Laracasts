@@ -12,9 +12,10 @@ class TasksController extends \BaseController {
 	{
 		// fetch all tbarasks
 		$tasks = Task::with('user')->get();
+		$users = User::lists('username', 'id');
 
 		// load a view to display them
-		return View::make('tasks.index', compact('tasks'));
+		return View::make('tasks.index', compact('tasks', 'users'));
 
 		// Eloquent, an ORM, offers clean Query builders
 	}
@@ -38,7 +39,15 @@ class TasksController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$input = Input::all();
+
+		Task::create([
+			'title'   => $input['title'],
+			'body'    => $input['body'],
+			'user_id' => $input['assign']
+		]);
+
+		return Redirect::home();
 	}
 
 	/**

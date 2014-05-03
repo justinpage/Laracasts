@@ -1,7 +1,7 @@
 <?php
 
 class Task extends \Eloquent {
-	protected $fillable = [];
+	protected $guarded = ['id'];
 
 	public function user()
 	{
