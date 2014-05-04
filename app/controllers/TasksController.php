@@ -1,6 +1,6 @@
 <?php
 
-use Acme\Services\TaskCreatorService;
+/* use Acme\Services\TaskCreatorService; */
 
 class TasksController extends \BaseController {
 
@@ -10,12 +10,12 @@ class TasksController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	protected $taskCreator;
-
-	public function __construct(TaskCreatorService $TaskCreator)
-	{
-		$this->taskCreator = $TaskCreator;
-	}
+	// protected $taskCreator;
+    //
+	// public function __construct(TaskCreatorService $TaskCreator)
+	// {
+	// 	$this->taskCreator = $TaskCreator;
+	// }
 
 	/**
 	 * Display a listing of the resource.
@@ -55,11 +55,15 @@ class TasksController extends \BaseController {
 	public function store()
 	{
 
-		try {
-			$this->taskCreator->make(Input::all());
-		} catch (Acme\Validators\ValidationException $e) {
-			return Redirect::back()->withInput()->withErrors($e->getErrors());
+		$task = new Task(Input::all());
+		if (! $task->save() ) {
+			return Redirect::back()->withInput()->withErrors($task->getErrors());
 		}
+		// try {
+		// 	$this->taskCreator->make(Input::all());
+		// } catch (Acme\Validators\ValidationException $e) {
+		// 	return Redirect::back()->withInput()->withErrors($e->getErrors());
+		// }
 
 		return Redirect::home();
 	}

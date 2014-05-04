@@ -18,8 +18,8 @@
 	</div>
 
 	<div class="form-group">
-		{{ Form::label('assign', 'Assign To:') }}
-		{{ Form::select('assign', $users, null, ['class' => 'form-control']) }}
+		{{ Form::label('user_id', 'Assign To:') }}
+		{{ Form::select('user_id', $users, null, ['class' => 'form-control']) }}
 	</div>
 
 	<div class="form-group">
