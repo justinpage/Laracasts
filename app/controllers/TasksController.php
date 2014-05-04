@@ -1,6 +1,21 @@
 <?php
 
+use Acme\Services\TaskCreatorService;
+
 class TasksController extends \BaseController {
+
+	/**
+	 * Show the form for creating a new resource.
+	 * GET /tasks/create
+	 *
+	 * @return Response
+	 */
+	protected $taskCreator;
+
+	public function __construct(TaskCreatorService $TaskCreator)
+	{
+		$this->taskCreator = $TaskCreator;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -39,13 +54,12 @@ class TasksController extends \BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
 
-		Task::create([
-			'title'   => $input['title'],
-			'body'    => $input['body'],
-			'user_id' => $input['assign']
-		]);
+		try {
+			$this->taskCreator->make(Input::all());
+		} catch (Acme\Validators\ValidationException $e) {
+			return Redirect::back()->withInput()->withErrors($e->getErrors());
+		}
 
 		return Redirect::home();
 	}
