@@ -26,7 +26,7 @@ class TasksController extends \BaseController {
 	public function index()
 	{
 		// fetch all tbarasks
-		$tasks = Task::with('user')->get();
+		$tasks = Task::with('user')->orderBy('completed', 'asc')->get();
 		$users = User::lists('username', 'id');
 
 		// load a view to display them
@@ -93,8 +93,8 @@ class TasksController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
 	}
+		//
 
 	/**
 	 * Update the specified resource in storage.
@@ -105,7 +105,11 @@ class TasksController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$task = Task::find($id);
+		$task->completed = Input::get('completed') ? Input::get('completed') : 0;
+		$task->save();
+
+		return Redirect::home();
 	}
 
 	/**
@@ -115,9 +119,12 @@ class TasksController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+		$task = Task::find(Input::get('task_id'));
+		$task->delete();
+
+		return Redirect::home();
 	}
 
 }

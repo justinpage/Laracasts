@@ -28,6 +28,6 @@ class Task extends BaseModel {
 
 	public static function byUsername($username)
 	{
-		return User::byUsername($username)->tasks;
+		return User::byUsername($username)->tasks()->orderBy('completed', 'asc')->get();
 	}
 }
