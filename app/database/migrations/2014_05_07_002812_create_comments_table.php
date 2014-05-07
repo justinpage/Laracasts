@@ -16,7 +16,8 @@ class CreateCommentsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->text('body');
-			$table->integer('lesson_id');
+			$table->integer('commentable_id'); // lesson_id persume or episode_id, anything
+			$table->string('commentable_type'); // name of the model associated with
 			$table->timestamps();
 		});
 	}
