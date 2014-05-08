@@ -1,7 +1,7 @@
 Laracasts
 =========
 
-Eps. 1 - 26
+Eps. 1 - 31
 -----------
 
 A detailed work through of every Laracast ever covered.
