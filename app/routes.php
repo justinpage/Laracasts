@@ -1,8 +1,10 @@
 <?php
 
-Route::get('/', 'PagesController@getHome');
+Route::get('posts', function()
+{
+	return View::make('home')->withPosts(Post::all());	
+});
 
-Route::controller('pages', 'PagesController');
 
 
 

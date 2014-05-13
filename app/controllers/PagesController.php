@@ -2,8 +2,8 @@
 
 class PagesController extends BaseController
 {
-	public function getHome()
+	public function getPosts()
 	{
-		return View::make('home');
+		return View::make('home')->with;
 	}
 }
