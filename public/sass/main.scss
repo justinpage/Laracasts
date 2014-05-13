@@ -18,7 +18,7 @@ body {
 			width: 40%; float:left; text-align:left; margin-top: 18px;
 			font-weight: bold; font-size: 1.25em; padding-left: 20px;
 		}
-		ol {
+		ul {
 			width: 40%; padding: 20px; float:right; text-align:right;
 			font-size: 1em; font-weight: bold;
 			li { display:inline; padding: 0 0.35em;}
@@ -28,6 +28,7 @@ body {
 	aside {
 		color: $cont; padding: 30px 0; width: 150px; float: left; margin: 10px;
 		margin: 0 20px; font-size: 1.5em; line-height: 1.75em; font-weight: bold;
+		ul li { font-size: 0.75em; font-weight: normal;  list-style: circle; margin: 0 20px;}
 	}
 
 	.content {

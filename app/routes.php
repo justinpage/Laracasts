@@ -6,3 +6,4 @@ Route::get('about', 'PagesController@getAbout');
 Route::controller('pages', 'PagesController');
 
 
+
