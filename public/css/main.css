@@ -69,6 +69,7 @@ body {
   margin: 0 auto;
   font-family: Helvetica;
   margin-top: 4em;
+  margin-bottom: 4em;
   font-size: 1em / 1.5em;
   /** 16px **/
   color: white;
@@ -140,25 +141,40 @@ body .content {
   margin: 20px;
 }
 /* line 51, ../sass/main.scss */
-body .content h2 {
+body .content .post {
+  padding: 30px 18px;
+}
+/* line 53, ../sass/main.scss */
+body .content .post h2 {
   font-size: 1.75em;
   line-height: 1.75em;
   font-weight: bold;
+  padding-bottom: 5px;
 }
-/* line 56, ../sass/main.scss */
-body .content p {
+/* line 59, ../sass/main.scss */
+body .content .post p {
   line-height: 1.75em;
   margin-top: 0.25em;
 }
-/* line 62, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 body footer {
   width: 100%;
   height: 60px;
   background-color: #bb574e;
   clear: both;
 }
-/* line 64, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 body footer p {
   padding: 20px;
   font-weight: bold;
+}
+/* line 71, ../sass/main.scss */
+body hr {
+  border-color: #d3d3d3;
+  opacity: 0.25;
+  margin: 0 18px;
+}
+/* line 73, ../sass/main.scss */
+body hr:last-of-type {
+  display: none;
 }
