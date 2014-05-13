@@ -7,7 +7,6 @@
 <body>
 	<div class='container wrap'>
 		@include ('layouts.partials.nav')
-		@include ('layouts.partials.sidebar')
 		<div class='content'>
 			@yield ('content')
 		</div>

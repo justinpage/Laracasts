@@ -14,9 +14,28 @@ body {
 		width: 100%;
 		background-color: $bg;
 		vertical-align: middle;
-		h2 {
-			width: 40%; float:left; text-align:left; margin-top: 18px;
-			font-weight: bold; font-size: 1.25em; padding-left: 20px;
+		position: relative;
+		h2 { 
+			position: relative;
+			a {
+				width: 40%; float:left; text-align:left; margin-top: 18px;
+				font-weight: bold; font-size: 1.25em; padding-left: 20px; color:$nav;
+				text-decoration: none;
+			}
+		}
+		form {
+			position: absolute;
+			top: 28%;
+			left: 15%;
+			input {
+				width: 75%;
+				padding-left: 0.5em;
+				border:none;
+				border-radius: 10px;
+				&:focus{
+					outline:0;
+				}
+			}
 		}
 		ul {
 			width: 40%; padding: 20px; float:right; text-align:right;
@@ -25,18 +44,10 @@ body {
 			a { color: $nav; }
 		}
 	}
-	aside {
-		color: $cont; padding: 30px 0; width: 150px; float: left; margin: 10px;
-		margin: 0 20px; font-size: 1.5em; line-height: 1.75em; font-weight: bold;
-		ul li { font-size: 0.75em; font-weight: normal;  list-style: circle; margin: 0 20px;}
-	}
-
 	.content {
 		color: $cont;
-		padding: 30px 0;
-		width: 500px;
-		float: right;
-		margin: 0 20px;
+		width: 760px;
+		margin: 20px;
 		h2 {
 			font-size: 1.75em;
 			line-height: 1.75em;

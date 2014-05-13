@@ -1,7 +1,9 @@
 <header>
-	<h2>Demos!</h2>
+	<h2>{{ link_to('/', 'Demos!') }}</h2>
+	{{ Form::open() }}
+		{{Form::input('search', 'q', null, ['placeholder' => 'Search...']) }}
+	{{ Form::close() }}
 	<ul>
 		<li>{{ link_to('/', 'Home') }}</li>
-		<li>{{ link_to('about', 'About') }}</li>
 	</ul>
 </header>
