@@ -8,7 +8,8 @@
 	},
 
 	"require-dev": {
-		"way/generators": "dev-master"
+		"way/generators": "dev-master",
+		"mockery/mockery": "dev-master"
 	},
 
 	"autoload": {
