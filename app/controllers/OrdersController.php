@@ -32,11 +32,8 @@ class OrdersController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store($id)
+	public function store()
 	{
-		$order = Order::findOrFail($id);
-
-		return View::make('orders.show', compact('order'));
 	}
 
 	/**
@@ -48,7 +45,9 @@ class OrdersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$order = Order::findOrFail($id);
+
+		return View::make('orders.show', compact('order'));
 	}
 
 	/**

@@ -1,15 +1,18 @@
 @extends ('layouts.master')
 
 @section('content')
-	@if ($order->count())
+	@if ($order)
 		<div class='order'>
-			<a href='{{ link_to_route('orders.show', null, ['id' => $order->id]) }}'>
-				<img src='{{ $order->image; }}' alt='{{ $order->title; }}' />
+			<a class='left-col' href='{{ route('orders.show', $order->id) }}'>
+				{{ HTML::image($order->image, $order->title) }}
 			</a>
-			<h2>{{ $order->title; }}</h2>
-			<p>{{ $order->description; }} </p>
+			<div class='post'>
+				<a href='{{ route('orders.show', $order->id) }}'>
+					<h2>{{ $order->title; }}</h2>
+				</a>
+				<p>{{ $order->description; }} </p>
+			</div>
 		</div>
-		<hr />
 	@else
 		<p>No orders found.</p>
 	@endif

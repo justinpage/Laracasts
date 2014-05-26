@@ -5,7 +5,7 @@
 		@foreach($orders as $order)
 			<div class='order'>
 				<a class='left-col' href='{{ route('orders.show', $order->id) }}'>
-					<img src='{{ $order->image }}' alt='{{ $order->title}}' />
+					{{ HTML::image($order->image, $order->title) }}
 				</a>
 				<div class='post'>
 					<a href='{{ route('orders.show', $order->id) }}'>

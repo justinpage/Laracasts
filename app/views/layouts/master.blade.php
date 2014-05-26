@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
     <meta charset='UTF-8' />
-	<link href='css/main.css' rel='stylesheet' />
+	<link href='{{ URL::asset('css/main.css'); }}' rel='stylesheet' />
 </head>
 <body>
 	<div class='container wrap'>
