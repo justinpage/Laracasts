@@ -1,0 +1,93 @@
+@import 'compass/reset';
+
+$bg: #bb574e;
+$nav: #ffffff;
+$cont: #000000;
+$navTop: 20px;
+
+body {
+	width: 800px; margin: 0 auto; font-family: Helvetica; margin-top: 3em; margin-bottom: 4em;
+	font-size: 1em / 1.5em; /** 16px **/; color: $nav; border: 1px solid darkgrey;
+
+	a {
+		color: darken($bg, 30%);
+	}
+
+	header {
+		height: 60px;
+		width: 100%;
+		background-color: $bg;
+		vertical-align: middle;
+		position: relative;
+		h2 {
+			position: relative;
+			a {
+				width: 40%; float:left; text-align:left; margin-top: 18px;
+				font-weight: bold; font-size: 1.25em; padding-left: 20px; color:$nav;
+				text-decoration: none;
+			}
+		}
+		ul {
+			width: 40%; padding: 20px; float:right; text-align:right;
+			font-size: 1em; font-weight: bold;
+			li { display:inline; padding: 0 0.35em;}
+			a { color: $nav; }
+		}
+	}
+	.content {
+		color: $cont;
+		height: 100%;
+		width: 760px;
+		margin: 20px;
+
+		.order {
+			height: 200px;
+			padding: 20px 0 20px 0;
+			.left-col {
+				width: 200px;
+				float: left;
+				clear:both;
+			}
+			.post {
+				padding: 30px 18px;
+				float:right;
+				width:500px;
+				a {
+					color: $bg;
+					text-decoration: none;
+					&:hover, &:focus {
+						color: darken($bg, 30%);
+						outline: 0;
+					}
+				}
+				h2 {
+					font-size: 1.75em;
+					line-height: 1.75em;
+					font-weight: bold;
+					padding-bottom: 5px;
+				}
+				p {
+					line-height: 1.75em;
+					margin-top: 0.25em;
+				}
+			}
+		}
+		form label {
+			display: block;
+			margin: 10px 0 5px 0;
+		}
+
+	}
+
+	footer {
+		width: 100%; height: 60px; background-color: $bg;  clear:both;
+		p { padding: 22px; font-weight: bold;}
+	}
+
+	hr {border-color: #d3d3d3; opacity: 0.25;}
+
+	hr:last-of-type {
+		display:none;
+	}
+}
+
