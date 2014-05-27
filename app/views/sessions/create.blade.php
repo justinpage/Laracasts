@@ -1,17 +1,22 @@
 @extends ('layouts.master')
 
 @section('content')
-	{{ Form::open(['route' => 'sessions.store']) }}
-
-		<div>
-			{{ Form::label('email', 'Email:') }}
-			{{ Form::text('email') }}
+	<div class='order'>
+		<div class='post'>
+			<h2>Login</h2>
 		</div>
+		{{ Form::open(['route' => 'sessions.store']) }}
 
-		<div>
-			{{ Form::label('password', 'Passowrd') }}
-			{{ Form::password('password') }}
-		</div>
-	<div>{{ Form::submit('Login') }}</div>
-	{{ Form::close() }}
+			<div>
+				{{ Form::label('username', 'Username:') }}
+				{{ Form::text('username') }}
+			</div>
+
+			<div>
+				{{ Form::label('password', 'Password') }}
+				{{ Form::password('password') }}
+			</div>
+		<div>{{ Form::submit('Login') }}</div>
+		{{ Form::close() }}
+	</div>
 @stop

@@ -84,6 +84,6 @@ class SessionsController extends BaseController {
 	{
 		Auth::logout();
 
-		return Redirect::route('sessions.create');
+		return Redirect::to('login');
 	}
 }

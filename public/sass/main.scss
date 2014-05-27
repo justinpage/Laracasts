@@ -45,12 +45,9 @@ body {
 			padding: 20px 0 20px 0;
 			.left-col {
 				width: 200px;
-				float: left;
 				clear:both;
 			}
 			.post {
-				padding: 30px 18px;
-				float:right;
 				width:500px;
 				a {
 					color: $bg;
@@ -72,9 +69,9 @@ body {
 				}
 			}
 		}
-		form label {
-			display: block;
+		form input{
 			margin: 10px 0 5px 0;
+			display:block;
 		}
 
 	}

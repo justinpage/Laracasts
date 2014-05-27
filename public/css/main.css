@@ -136,60 +136,57 @@ body .content .order {
 /* line 46, ../sass/main.scss */
 body .content .order .left-col {
   width: 200px;
-  float: left;
   clear: both;
 }
-/* line 51, ../sass/main.scss */
+/* line 50, ../sass/main.scss */
 body .content .order .post {
-  padding: 30px 18px;
-  float: right;
   width: 500px;
 }
-/* line 55, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
 body .content .order .post a {
   color: #bb574e;
   text-decoration: none;
 }
-/* line 58, ../sass/main.scss */
+/* line 55, ../sass/main.scss */
 body .content .order .post a:hover, body .content .order .post a:focus {
   color: #51231f;
   outline: 0;
 }
-/* line 63, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 body .content .order .post h2 {
   font-size: 1.75em;
   line-height: 1.75em;
   font-weight: bold;
   padding-bottom: 5px;
 }
-/* line 69, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 body .content .order .post p {
   line-height: 1.75em;
   margin-top: 0.25em;
 }
-/* line 75, ../sass/main.scss */
-body .content form label {
-  display: block;
+/* line 72, ../sass/main.scss */
+body .content form input {
   margin: 10px 0 5px 0;
+  display: block;
 }
-/* line 82, ../sass/main.scss */
+/* line 79, ../sass/main.scss */
 body footer {
   width: 100%;
   height: 60px;
   background-color: #bb574e;
   clear: both;
 }
-/* line 84, ../sass/main.scss */
+/* line 81, ../sass/main.scss */
 body footer p {
   padding: 22px;
   font-weight: bold;
 }
-/* line 87, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 body hr {
   border-color: #d3d3d3;
   opacity: 0.25;
 }
-/* line 89, ../sass/main.scss */
+/* line 86, ../sass/main.scss */
 body hr:last-of-type {
   display: none;
 }
