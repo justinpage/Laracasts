@@ -59,7 +59,8 @@ class OrdersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$order = Order::findOrFail($id);
+		return View::make('orders.edit', compact('order'));
 	}
 
 	/**
@@ -71,7 +72,10 @@ class OrdersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$order = Order::findOrFail($id);
+		$order->fill(Input::all());
+		$order->save();
+		return Redirect::route('orders.index');
 	}
 
 	/**

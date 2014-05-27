@@ -13,8 +13,9 @@
 				<p>{{ $order->description; }} </p>
 			</div>
 		</div>
+		{{ link_to_route('orders.edit', 'Edit Order', $order->id) }}
 	@else
-		<p>No orders found.</p>
+		<p>No order found.</p>
 	@endif
 @stop
 

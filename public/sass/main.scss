@@ -6,8 +6,12 @@ $cont: #000000;
 $navTop: 20px;
 
 body {
-	width: 800px; margin: 0 auto; font-family: Helvetica; margin-top: 4em; margin-bottom: 4em;
+	width: 800px; margin: 0 auto; font-family: Helvetica; margin-top: 3em; margin-bottom: 4em;
 	font-size: 1em / 1.5em; /** 16px **/; color: $nav; border: 1px solid darkgrey;
+
+	a {
+		color: darken($bg, 30%);
+	}
 
 	header {
 		height: 60px;
@@ -21,20 +25,6 @@ body {
 				width: 40%; float:left; text-align:left; margin-top: 18px;
 				font-weight: bold; font-size: 1.25em; padding-left: 20px; color:$nav;
 				text-decoration: none;
-			}
-		}
-		form {
-			position: absolute;
-			top: 28%;
-			left: 15%;
-			input {
-				width: 75%;
-				padding-left: 0.5em;
-				border:none;
-				border-radius: 10px;
-				&:focus{
-					outline:0;
-				}
 			}
 		}
 		ul {
@@ -58,8 +48,6 @@ body {
 				float: left;
 				clear:both;
 			}
-
-
 			.post {
 				padding: 30px 18px;
 				float:right;
@@ -83,6 +71,10 @@ body {
 					margin-top: 0.25em;
 				}
 			}
+		}
+		form label {
+			display: block;
+			margin: 10px 0 5px 0;
 		}
 
 	}
