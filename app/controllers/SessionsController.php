@@ -18,7 +18,6 @@ class SessionsController extends BaseController {
 	 */
 	public function create()
 	{
-		if(Auth::check()) return Redirect::to('/admin');
         return View::make('sessions.create');
 	}
 
@@ -29,12 +28,17 @@ class SessionsController extends BaseController {
 	 */
 	public function store()
 	{
-		if(Auth::attempt(Input::only('email', 'password')))
+		$creds = [
+			'username' => Input::get('username'),
+			'password' => Input::get('password'),
+		];
+
+		if (Auth::attempt($creds))
 		{
-			return "Hello, " . Auth::user()->username;
+			return Redirect::intended('admin');
 		}
 
-		return Redirect::back()->withInput(); 
+		return Redirect::back()->withInput()->withErrors();
 	}
 
 	/**
@@ -80,6 +84,6 @@ class SessionsController extends BaseController {
 	{
 		Auth::logout();
 
-		return Redirect::route('sessions.create');
+		return Redirect::to('login');
 	}
 }

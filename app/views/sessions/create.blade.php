@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8' />
-    <title>Create Sessions</title>
-</head>
-<body>
-	{{ Form::open(['route' => 'sessions.store']) }}
+@extends ('layouts.master')
 
-		<div>
-			{{ Form::label('email', 'Email:') }}
-			{{ Form::text('email') }}
+@section('content')
+	<div class='order'>
+		<div class='post'>
+			<h2>Login</h2>
 		</div>
+		{{ Form::open(['route' => 'sessions.store']) }}
 
-		<div>
-			{{ Form::label('password', 'Passowrd') }}
-			{{ Form::password('password') }}
-		</div>
-	<div>{{ Form::submit('Login') }}</div>
-	{{ Form::close() }}
-</body>
-</html>
+			<div>
+				{{ Form::label('username', 'Username:') }}
+				{{ Form::text('username') }}
+			</div>
+
+			<div>
+				{{ Form::label('password', 'Password') }}
+				{{ Form::password('password') }}
+			</div>
+		<div>{{ Form::submit('Login') }}</div>
+		{{ Form::close() }}
+	</div>
+@stop
