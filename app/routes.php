@@ -1,7 +1,3 @@
 <?php
 
-Route::get('/', function()
-{
-	return 'hello!';
-});
-
+Route::resource('projects', 'ProjectsController');
