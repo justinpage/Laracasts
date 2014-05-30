@@ -63,7 +63,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 8, ../sass/main.scss */
+/* line 17, ../sass/main.scss */
 body {
   width: 800px;
   margin: 0 auto;
@@ -75,11 +75,11 @@ body {
   color: white;
   border: 1px solid darkgrey;
 }
-/* line 12, ../sass/main.scss */
+/* line 21, ../sass/main.scss */
 body a {
   color: #51231f;
 }
-/* line 16, ../sass/main.scss */
+/* line 25, ../sass/main.scss */
 body header {
   height: 60px;
   width: 100%;
@@ -87,11 +87,11 @@ body header {
   vertical-align: middle;
   position: relative;
 }
-/* line 22, ../sass/main.scss */
+/* line 31, ../sass/main.scss */
 body header h2 {
   position: relative;
 }
-/* line 24, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
 body header h2 a {
   width: 40%;
   float: left;
@@ -103,7 +103,7 @@ body header h2 a {
   color: white;
   text-decoration: none;
 }
-/* line 30, ../sass/main.scss */
+/* line 39, ../sass/main.scss */
 body header ul {
   width: 40%;
   padding: 20px;
@@ -112,81 +112,88 @@ body header ul {
   font-size: 1em;
   font-weight: bold;
 }
-/* line 33, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 body header ul li {
   display: inline;
   padding: 0 0.35em;
 }
-/* line 34, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 body header ul a {
   color: white;
 }
-/* line 37, ../sass/main.scss */
+/* line 46, ../sass/main.scss */
 body .content {
   color: black;
   height: 100%;
   width: 760px;
   margin: 20px;
 }
-/* line 43, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
+body .content h2 {
+  font-size: 1.75em;
+  line-height: 1.75em;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+/* line 56, ../sass/main.scss */
 body .content .order {
   height: 200px;
   padding: 20px 0 20px 0;
 }
-/* line 46, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 body .content .order .left-col {
   width: 200px;
   clear: both;
 }
-/* line 50, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 body .content .order .post {
   width: 500px;
 }
-/* line 52, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 body .content .order .post a {
   color: #bb574e;
   text-decoration: none;
 }
-/* line 55, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 body .content .order .post a:hover, body .content .order .post a:focus {
   color: #51231f;
   outline: 0;
 }
-/* line 60, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 body .content .order .post h2 {
   font-size: 1.75em;
   line-height: 1.75em;
   font-weight: bold;
   padding-bottom: 5px;
 }
-/* line 66, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 body .content .order .post p {
   line-height: 1.75em;
   margin-top: 0.25em;
 }
-/* line 72, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 body .content form input {
   margin: 10px 0 5px 0;
   display: block;
 }
-/* line 79, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 body footer {
   width: 100%;
   height: 60px;
   background-color: #bb574e;
   clear: both;
 }
-/* line 81, ../sass/main.scss */
+/* line 91, ../sass/main.scss */
 body footer p {
   padding: 22px;
   font-weight: bold;
 }
-/* line 84, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 body hr {
   border-color: #d3d3d3;
   opacity: 0.25;
 }
-/* line 86, ../sass/main.scss */
+/* line 96, ../sass/main.scss */
 body hr:last-of-type {
   display: none;
 }

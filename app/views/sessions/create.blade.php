@@ -16,7 +16,10 @@
 				{{ Form::label('password', 'Password') }}
 				{{ Form::password('password') }}
 			</div>
-		<div>{{ Form::submit('Login') }}</div>
+		<div>
+			{{ Form::submit('Login') }}
+			{{ link_to_route('password_resets.getRemind', 'Forgot your password?') }}
+		</div>
 		{{ Form::close() }}
 	</div>
 @stop

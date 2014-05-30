@@ -1,9 +1,18 @@
 @import 'compass/reset';
 
+// variables
 $bg: #bb574e;
 $nav: #ffffff;
 $cont: #000000;
 $navTop: 20px;
+
+// mixins
+@mixin heading() {
+	font-size: 1.75em;
+	line-height: 1.75em;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
 
 body {
 	width: 800px; margin: 0 auto; font-family: Helvetica; margin-top: 3em; margin-bottom: 4em;
@@ -40,6 +49,10 @@ body {
 		width: 760px;
 		margin: 20px;
 
+		h2 {
+			@include heading();
+		}
+
 		.order {
 			height: 200px;
 			padding: 20px 0 20px 0;
@@ -58,10 +71,7 @@ body {
 					}
 				}
 				h2 {
-					font-size: 1.75em;
-					line-height: 1.75em;
-					font-weight: bold;
-					padding-bottom: 5px;
+					@include heading();
 				}
 				p {
 					line-height: 1.75em;
