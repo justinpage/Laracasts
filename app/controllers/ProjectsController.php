@@ -34,30 +34,17 @@ class ProjectsController extends \BaseController {
 	 */
 	public function store()
 	{
-		// already, our controller is twenty lines long
-		// also, you may start asking yourself how can i call this controller from another
-		// stop and think to yourself that this is a code smell.
-		$input = Input::all();
+		$creator = new Acme\Project\Creator($this);
+		return 	$creator->create(Input::all());
+	}
 
-		// does this validation rules belong here, no!
-		// can validation be used somewhere else inside your controller, yes!
-		$validation = Validator::make($input, ['name' => 'required', 'description' => 'required', 'owner_id' => 'required']);
+	public function projectCreationFails($errors)
+	{
+		return Redirect::back()->withInput()->withErrors($errors);
+	}
 
-		if ($validation->fails()) {
-			return Redirect::back()->withInput()->withErrors($errors);
-		}
-
-		$project = Project::create($input);
-
-		$mailer = new UserMailer;
-		$mailer->notify($project->owner, 'A new project has been created and assigned to you.');
-
-		UserEvent::create([
-			'user_id'     => $input['owner_id'],
-			'type'        => 'admin',
-			'description' => 'Created new project, ' . $input['name']
-		]);
-
+	protected function projectCreationSucceeds()
+	{
 		return Redirect::route('projects.index');
 	}
 
