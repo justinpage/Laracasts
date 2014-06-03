@@ -37,8 +37,10 @@ class UserCreatorCommand extends Command {
 	 */
 	public function fire()
 	{
-		$username = $this->argument('username');
-		$password = $this->argument('password');
+		// $username = $this->argument('username');
+		$username = $this->ask("which username should I use?");
+		$password = $this->secret("which password should I use?");
+		// $password = $this->argument('password');
 
 		$user = new User;
 		$user->username = $username;
@@ -57,8 +59,8 @@ class UserCreatorCommand extends Command {
 	protected function getArguments()
 	{
 		return array(
-			array('username', InputArgument::REQUIRED, 'Desired username'),
-			array('password', InputArgument::REQUIRED, 'Desired password'),
+			// array('username', InputArgument::REQUIRED, 'Desired username'),
+			// array('password', InputArgument::REQUIRED, 'Desired password'),
 		);
 	}
 }
