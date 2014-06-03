@@ -11,3 +11,5 @@
 |
 */
 
+// reference as a string and resolve out of the IoC container
+Artisan::resolve('ModelGeneratorCommand');
