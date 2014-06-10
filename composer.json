@@ -8,7 +8,11 @@
 	},
 
 	"require-dev": {
-		"way/generators": "dev-master"
+		"way/generators": "dev-master",
+		"behat/behat": "2.5.*",
+		"behat/mink": "1.5.*",
+		"behat/mink-extension": "*",
+		"behat/mink-goutte-driver": "*"
 	},
 
 	"autoload": {
@@ -34,7 +38,8 @@
 		]
 	},
 	"config": {
-		"preferred-install": "dist"
+		"preferred-install": "dist",
+		"bin-dir": "vendor/bin/"
 	},
 	"minimum-stability": "dev"
 }

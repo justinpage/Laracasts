@@ -1,7 +1,7 @@
 <?php
 
-Route::get('/', function()
+Route::get('guests/create', function()
 {
-	return 'hello!';
+	return View::make('guests.create');
 });
 
