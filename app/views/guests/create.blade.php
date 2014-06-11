@@ -3,7 +3,7 @@
 @section('content')
 	<h1>Sign the Guest Book!</h1>
 	
-	{{ Form::open() }}
+	{{ Form::open(['route' => 'guests.store']) }}
 	<div>
 		{{ Form::label('name', 'Your Name:') }}
 		{{ Form::text('name', null, ['id' => 'name']) }}

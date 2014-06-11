@@ -31,6 +31,19 @@ class FeatureContext extends MinkContext
         // Initialize your context here
     }
 
+    /**
+	 * @static
+	 * @beforeSuite
+     */
+	public static function bootstrapLaravel()
+	{
+		$unitTesting = true;
+		$testEnvironment = 'testing';
+
+		$app = require_once __DIR__ .'/../../../../bootstrap/start.php';
+		$app->boot();
+	}
+
 //
 // Place your definition and hook methods here:
 //
@@ -42,4 +55,30 @@ class FeatureContext extends MinkContext
 //        doSomethingWith($argument);
 //    }
 //
+
+    /**
+     * @Given /^I fill out the guest book$/
+     */
+    public function iFillOutTheGuestBook($name = 'Justin Page', $message = 'Your website kicks ass!')
+    {
+		$this->fillField('name', $name);
+		$this->fillField('message', $message);
+		$this->pressButton('Submit');
+    }
+
+    /**
+     * @Given /^I fill out the guest book incorrectly$/
+     */
+    public function iFillOutTheGuestBookIncorrectly()
+    {
+		$this->IFillOutTheGuestBook('', '');
+    }
+
+    /**
+     * @Given /^there are no guests$/
+     */
+    public function thereAreNoGuests()
+    {
+		Guest::truncate();
+    }
 }
