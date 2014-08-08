@@ -54,6 +54,12 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('admin', function()
+{
+	if(Input::get('pwd') !== 'qfor')
+		return Redirect::to('/');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
