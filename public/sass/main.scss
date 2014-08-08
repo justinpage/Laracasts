@@ -5,6 +5,14 @@ $nav: #ffffff;
 $cont: #000000;
 $navTop: 20px;
 
+
+@mixin emphasizeFont() {
+	font-size: 1.75em;
+	line-height: 1.75em;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
 body {
 	width: 800px; margin: 0 auto; font-family: Helvetica; margin-top: 3em; margin-bottom: 4em;
 	font-size: 1em / 1.5em; /** 16px **/; color: $nav; border: 1px solid darkgrey;
@@ -40,6 +48,10 @@ body {
 		width: 760px;
 		margin: 20px;
 
+		h1 { @include emphasizeFont(); }
+
+		canvas { margin-right: 5%; margin-left: 5%;}
+
 		.order {
 			height: 200px;
 			padding: 20px 0 20px 0;
@@ -61,10 +73,7 @@ body {
 					}
 				}
 				h2 {
-					font-size: 1.75em;
-					line-height: 1.75em;
-					font-weight: bold;
-					padding-bottom: 5px;
+					@include emphasizeFont();
 				}
 				p {
 					line-height: 1.75em;
