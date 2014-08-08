@@ -11,4 +11,8 @@
 |
 */
 
-Route::get('admin/reports/daily', 'ReportsController@daily')->before('admin');
+Route::get('/', ['as' => 'home', 'uses' =>  function() { return 'Hello,
+	Justin'; }]);
+
+Route::get('admin/reports/daily', ['as' => 'admin.reports.daily', 'uses' =>
+'ReportsController@daily'])->before('admin');
