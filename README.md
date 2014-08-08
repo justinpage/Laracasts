@@ -1,6 +1,6 @@
 Laracasts
 =========
-(Laracasts Notes)[https://github.com/KLVTZ/laracasts_notes]
+[Laracasts Notes](https://github.com/KLVTZ/laracasts_notes)
 
 Eps. 1 - 53
 -----------
