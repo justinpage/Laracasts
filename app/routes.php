@@ -2,8 +2,9 @@
 
 Route::get('/', function()
 {
-	$user = User::first();
+	$users = User::all();
 
-	return View::make('home')->withUser($user);
+	return View::make('home')->with('users', new
+		Acme\Presenters\PresenterCollection('Acme\Presenters\UserPresenter', $users));
 });
 
